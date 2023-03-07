@@ -21,7 +21,7 @@ const Flashcard = (props) => {
         <div className='card-content'>
             {flip 
             ? <h3>Answer: {cardList[props.countIndex].answer}</h3>
-            : cardList[props.countIndex].question
+            : <p><b>Question: </b>{cardList[props.countIndex].question}</p>
             }
         </div>
 
