@@ -6,7 +6,12 @@
     flex-direction: column;
     margin: auto;
     cursor: pointer;
+    -webkit-user-select: none;
 
+}
+
+.flashcard:click {
+    transform: rotateY(180deg);
 }
 
 .card-header{
@@ -16,6 +21,7 @@
     height: 20%;
     background-color: green;
 }
+
 
 .card-content{
     

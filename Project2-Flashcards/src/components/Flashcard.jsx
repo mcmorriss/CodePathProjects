@@ -10,12 +10,11 @@ const Flashcard = (props) => {
     const handleClick = () => {
         (!flip) ? setFlip(true) : setFlip(false);
     }
-
   
     return (
         <div className='flashcard' onClick={handleClick}>
 
-        <div className='card-header'>
+        <div className='card-header' difficulty={cardList[props.countIndex].difficulty} id='card-header'>
             <h3>Difficulty: {cardList[props.countIndex].difficulty}</h3>
         </div>
 
@@ -27,7 +26,10 @@ const Flashcard = (props) => {
         </div>
 
         <div className='card-footer'>
-            <h3>Card {props.countIndex + 1} / 10</h3>
+            {flip 
+            ? <h3>{cardList.length - (props.countIndex + 1)} Card{(cardList.length - (props.countIndex + 1) != 1) ? 's' : ''} Left</h3>
+            : <h3>Card {props.countIndex + 1} / {cardList.length}</h3>
+            }
         </div>
 
         </div>

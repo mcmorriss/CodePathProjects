@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import './App.css'
 import Flashcard from './components/Flashcard'
+import { cardList } from './components/questions';
 
 function App() {
   
   const [count, setCount] = useState(0);
+  const [flip, setFlip] = useState(false)
 
 
   const handleClick = () => {
@@ -13,7 +15,24 @@ function App() {
     } else {
       setCount(prevCount => prevCount + 1)
     }
+    
   }
+
+  const colorChange = () => {
+        var div = document.getElementById('card-header');
+
+        switch(cardList[(count > 5 ? 0 : count+1)].difficulty){
+            case "easy":
+                div.style.backgroundColor = 'green';
+                break;
+            case "medium":
+                div.style.backgroundColor = 'yellow';
+                break;
+            case "hard":
+                div.style.backgroundColor = 'red';
+                break;
+        }
+    }
 
 
 
@@ -31,12 +50,16 @@ function App() {
       
       <Flashcard 
       countIndex={count}
+      flip={false}
       />
 
-      <button className='btn' onClick={handleClick}>Next</button>
+      <button 
+      className='btn' 
+      onClick={() => {
+        colorChange();
+        handleClick();
+      }}>Next</button>
 
-      <div>{count}</div>
-      
     </div>
   )
 }
