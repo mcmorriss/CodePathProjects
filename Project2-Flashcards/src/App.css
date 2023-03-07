@@ -16,3 +16,16 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+.title {
+  width: 40em;
+  margin-bottom: 2em;
+}
+
+.btn {
+  width: 25%;
+  margin-top: 2em;
+  border: groove black;
+  background-color: dimgray;
+  color: whitesmoke;
+}

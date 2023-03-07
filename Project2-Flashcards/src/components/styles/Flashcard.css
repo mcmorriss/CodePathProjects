@@ -4,6 +4,9 @@
     border-style: solid;
     display: flex;
     flex-direction: column;
+    margin: auto;
+    cursor: pointer;
+
 }
 
 .card-header{
@@ -18,12 +21,12 @@
     
     height: 60%;
     text-align: center;
-    border: dotted red;
-    display: flex;
-    flex-direction: column;
+    border-bottom: solid black;
     padding: 3em;
+    padding-top: 3.5em;
 }
 
 .card-footer{
-    margin-top: 2em;
+    height: 20%;
+    margin: auto;
 }
