@@ -9,12 +9,20 @@ function App() {
   const [flip, setFlip] = useState(false)
 
 
-  const handleClick = () => {
-    if (count > 3) {
+  const handleClick = (num) => {
+
+
+    if (count > 3 && num == 1) {
       setCount(0)
-    } else {
-      setCount(prevCount => prevCount + 1)
     }
+    else if (num == -1 && count == 0){
+      setCount(cardList.length - 1)
+
+    } else {
+      setCount(prevCount => prevCount + num)
+    }
+
+    colorChange();
   }
 
   const colorChange = () => {
@@ -51,12 +59,22 @@ function App() {
       flip={false}
       />
 
+      <div className='buttons'>
+        <button 
+      className='btn' 
+      onClick={() => {
+        handleClick(-1);
+      }}>Previous</button>
+
       <button 
       className='btn' 
       onClick={() => {
-        colorChange();
-        handleClick();
+        handleClick(1);
       }}>Next</button>
+      </div>
+
+
+      <input type='text' id='userAnswer' name='answer' placeholder='Check Answer'></input>
 
     </div>
   )
