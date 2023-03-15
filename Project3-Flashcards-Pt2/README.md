@@ -30,22 +30,28 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
+User can enter guess of card:
+Green if correct:
+<img src='https://imgur.com/a/AbY8fU4.gif' />
+
+Red if incorrect:
+<img src='https://imgur.com/a/3vywv6h.gif' />
+
+Next and Previous buttons move forward/backward the deck, respectively.
+<img src='https://imgur.com/a/iUL0ic5.gif />
+
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Had lots of fun building this app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2023] [Michael Morriss]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
