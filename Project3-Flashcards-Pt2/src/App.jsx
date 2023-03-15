@@ -6,12 +6,16 @@ import { cardList } from './components/questions';
 function App() {
   
   const [count, setCount] = useState(0);
+  const [ans, setAns] = useState(null)
   const [flip, setFlip] = useState(false)
+
+  const getAns = (val) => {
+    setAns(val.target.value)
+    console.log(ans)
+  }
 
 
   const handleClick = (num) => {
-
-
     if (count > 3 && num == 1) {
       setCount(0)
     }
@@ -21,8 +25,24 @@ function App() {
     } else {
       setCount(prevCount => prevCount + num)
     }
-
     colorChange();
+  }
+
+  const checkAnswer = (event) => {
+    event.preventDefault()
+    var check = ans.toLowerCase()
+    var border = document.getElementById('box')
+    var correctAns = cardList[count].answer.toLowerCase()
+    console.log(check == correctAns)
+    switch(check == correctAns){
+      case true:
+        border.style.backgroundColor = 'green';
+        console.log('this made it')
+        break;
+      case false:
+        border.style.backgroundColor = 'red';
+        break;
+    }
   }
 
   const colorChange = () => {
@@ -41,8 +61,6 @@ function App() {
     }
 
 
-
-
   return (
     <div className="App">
 
@@ -59,6 +77,17 @@ function App() {
       flip={false}
       />
 
+      <div className='checking'>
+        <form>
+        <label>
+          Check Answer:
+          <input type='text' name='ans' className='inputBox' id='box' onChange={getAns}></input>
+        </label>
+        <button onClick={checkAnswer}>Check Answer</button>
+      </form>
+      </div>
+
+
       <div className='buttons'>
         <button 
       className='btn' 
@@ -74,7 +103,6 @@ function App() {
       </div>
 
 
-      <input type='text' id='userAnswer' name='answer' placeholder='Check Answer'></input>
 
     </div>
   )

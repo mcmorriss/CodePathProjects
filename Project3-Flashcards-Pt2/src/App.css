@@ -29,3 +29,8 @@ body {
   background-color: dimgray;
   color: whitesmoke;
 }
+
+.inputBox {
+  border: groove black;
+  margin: 2em;
+}
