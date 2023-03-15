@@ -32,13 +32,13 @@ Here's a walkthrough of implemented user stories:
 
 User can enter guess of card:
 Green if correct:
-<img src='https://imgur.com/a/AbY8fU4.gif' />
+<img src='https://i.imgur.com/W3anYXY.gif' />
 
 Red if incorrect:
-<img src='https://imgur.com/a/3vywv6h.gif' />
+<img src='https://i.imgur.com/rJdrjPX.gif' />
 
 Next and Previous buttons move forward/backward the deck, respectively.
-<img src='https://imgur.com/a/iUL0ic5.gif' />
+<img src='https://i.imgur.com/mZQSeZp.gif' />
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
