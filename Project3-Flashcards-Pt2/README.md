@@ -38,7 +38,7 @@ Red if incorrect:
 <img src='https://imgur.com/a/3vywv6h.gif' />
 
 Next and Previous buttons move forward/backward the deck, respectively.
-<img src='https://imgur.com/a/iUL0ic5.gif />
+<img src='https://imgur.com/a/iUL0ic5.gif' />
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
