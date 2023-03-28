@@ -15,6 +15,8 @@ function App() {
   }
 
 
+
+
   const handleClick = (num) => {
     if (count > 3 && num == 1) {
       setCount(0)
@@ -47,7 +49,7 @@ function App() {
 
   const colorChange = () => {
         var div = document.getElementById('card-header');
-        switch(cardList[(count > 5 ? 0 : count+1)].difficulty){
+        switch(cardList[(count+1)].difficulty){
             case "easy":
                 div.style.backgroundColor = 'green';
                 break;
@@ -58,6 +60,11 @@ function App() {
                 div.style.backgroundColor = 'red';
                 break;
         }
+    }
+
+    const getDifficulty = () => {
+      var div = document.getElementById('card-header');
+
     }
 
 
