@@ -3,6 +3,7 @@ import { Card, Col, Row, Table, Radio, Descriptions, Statistic } from 'antd';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, LinearScale, CategoryScale, BarElement, Title } from 'chart.js';
 import { Doughnut, Bar } from 'react-chartjs-2';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+const VITE_APP_API_KEY = process.env.VITE_APP_API_KEY;
 
 const Home = () => {
   const [list, setList] = useState(null);
@@ -25,7 +26,7 @@ const Home = () => {
   const options = {
     method: 'GET',
 	  headers: {
-		  'X-RapidAPI-Key': 'b19c45a3b7msh06cb7a867df7381p1aaf9fjsnabe75abb5788',
+		  'X-RapidAPI-Key': `${VITE_APP_API_KEY}`,
 		  'X-RapidAPI-Host': 'basketapi1.p.rapidapi.com'
 	  }}
 
