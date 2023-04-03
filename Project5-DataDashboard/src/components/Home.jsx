@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Card, Col, Row, Table, Radio } from 'antd';
+import { Card, Col, Row, Table, Radio, Descriptions, Statistic } from 'antd';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, LinearScale, CategoryScale, BarElement, Title } from 'chart.js';
 import { Doughnut, Bar } from 'react-chartjs-2';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -308,7 +308,7 @@ const Home = () => {
       },
       title: {
         display: true,
-        text: 'Points Per Game by Position',
+        text: 'Total Points by Position',
       },
     },
   };
@@ -322,9 +322,12 @@ const Home = () => {
         <Row gutter={16}>
         <Col span={8}>
           <Card title="Numbers by Position">
-            <p>Guards: <b>{guards}</b></p>
+            <Statistic title="Guards:" value={guards} />
+            <Statistic title="Forwards:" value={forwards} />
+            <Statistic title="Centers:" value={centers} />
+            {/*<p>Guards: <b>{guards}</b></p>
             <p>Forwards: <b>{forwards}</b></p>
-            <p>Centers: <b>{centers}</b></p>
+            <p>Centers: <b>{centers}</b></p>*/}
           </Card>
         </Col>
         <Col span={8}>
@@ -344,7 +347,12 @@ const Home = () => {
       <Row gutter={16}>
         <Col span={12}>
         
-          {list && <Table columns={columns} dataSource={arr} onChange={onChange} />}
+          {list && <Table 
+                        columns={columns} 
+                        dataSource={arr} 
+                        onChange={onChange}
+                        style={{ marginTop: '50px' }} 
+                    />}
         </Col>
         <Col span={12}>
 
@@ -359,11 +367,34 @@ const Home = () => {
                 <Radio.Button value="bar">Bar Graph</Radio.Button>
             </Radio.Group>
 
-          <div style={{borderRadius: '10px'}}>
-            {graphData && selectedGraph == "doughnut" && <Doughnut data={graphData} />}
+          <div>
+            {graphData && selectedGraph == "doughnut" && <Doughnut data={graphData}/>}
+            {graphData2 && selectedGraph == "bar" && <Bar options={graphOptions} data={graphData2} /> }
+          </div>
+
+          <div>
+            {graphData && selectedGraph == "doughnut" && 
+                <Descriptions title="Number of Players by Position" bordered style={{ marginTop: '20px' }}>
+                    <Descriptions.Item label='Guards' span={3}> {posArr[0]} </Descriptions.Item>
+                    <Descriptions.Item label='Forwards' span={3}> {posArr[1]} </Descriptions.Item>
+                    <Descriptions.Item label='Centers' span={3}> {posArr[2]} </Descriptions.Item>
+                    <Descriptions.Item label='Forward-Guards' span={3}> {posArr[3]} </Descriptions.Item>
+                    <Descriptions.Item label='Center-Forwards' span={3}> {posArr[4]} </Descriptions.Item>
+                </Descriptions>
+            }
+            {graphData2 && selectedGraph == "bar" && 
+                <Descriptions title="Total Number of Points by Position" bordered style={{ marginTop: '20px' }} >
+                    <Descriptions.Item label='Guards' span={3}> {dataSet[0]} </Descriptions.Item>
+                    <Descriptions.Item label='Forwards' span={3}> {dataSet[1]} </Descriptions.Item>
+                    <Descriptions.Item label='Centers' span={3}> {dataSet[2]} </Descriptions.Item>
+                    <Descriptions.Item label='Forward-Guards' span={3}> {dataSet[3]} </Descriptions.Item>
+                    <Descriptions.Item label='Center-Forwards' span={3}> {dataSet[4]} </Descriptions.Item>
+                </Descriptions>
+            }
+
           </div>
           <div >
-            {graphData2 && selectedGraph == "bar" && <Bar options={graphOptions} data={graphData2} /> }
+            
           </div>
         </Col>
       </Row>
