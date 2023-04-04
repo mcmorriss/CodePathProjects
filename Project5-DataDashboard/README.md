@@ -1,27 +1,24 @@
-# Web Development Project 5 - *NBA Stat Hub*
+# Web Development Project 6 - *NBA Stat Hub*
 
 Submitted by: **Michael Morriss**
 
-This web app: **This app uses Basketball API from rapidAPI to show the highest scorers in the NBA.**
+This web app: **A statistical toolkit for data relating to the most talented offensive players in the NBA, with data powered by BasketAPI.**
 
-Time spent: **11** hours spent in total
+Time spent: **21** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ X ] **The list displays a list of data fetched using an API call**
-- [ X ] **Data uses the useEffect React hook and async/await syntax**
-- [ X ] **The app dashboard includes at least three summary statistics about the data such as**
-  - [ X ] *Poistion numbers, mean/average points, and max/min points.*
-- [ ] **A search bar allows the user to search for an item in the fetched data**
-- [ ] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
+- [ X ] **The app includes at least two unique chart developed using the fetched data that tell an interesting story**
+- [ X ] **Clicking on an item in the list view displays more details about it**
+- [ X ] **Clicking on an item has a direct, unique link to that item's detail view page**
+
 
 The following **optional** features are implemented:
 
-- [ ] Multiple filters can be applied simultaneously
-- [ ] Filters use different input types such as a text input, a selection, or a slider
-- [ ] The user can enter specific bounds for filter values
+- [ X ] The site's customized dashboard contains more content that explains what is interesting about the data
+- [ X ] The site allows users to toggle between different data visualizations
 
 The following **additional** features are implemented:
 
@@ -31,13 +28,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-50 Data entries from API call, number of positions, average total value, and max/min points:
-<img src='https://i.imgur.com/HDM3eGc.gif' />
-
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  [ScreenToGif](https://www.screentogif.com/) for Windows
+GIF created with ...  
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -49,7 +43,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [2023] [Michael Morriss]
+    Copyright [yyyy] [name of copyright owner]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
