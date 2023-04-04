@@ -3,10 +3,10 @@ import { Card, Col, Row, Table, Radio, Descriptions, Statistic } from 'antd';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, LinearScale, CategoryScale, BarElement, Title } from 'chart.js';
 import { Doughnut, Bar } from 'react-chartjs-2';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-const VITE_APP_API_KEY = process.env.VITE_APP_API_KEY;
+const VITE_APP_API_KEY = import.meta.env.VITE_APP_API_KEY;
 
-const Home = () => {
-  const [list, setList] = useState(null);
+const Home = ({list}) => {
+  //const [list, setList] = useState(null);
   const [arr, setArr] = useState(null);
   const [posArr, setPosArr] = useState(null);
   const [graphData, setGraphData] = useState(null);
@@ -14,7 +14,7 @@ const Home = () => {
   const [dataSet, setDataSet] = useState(null);
   const [tableData, setTableData] = useState(null);
 
-  const [selectedGraph, setSelectedGraph] = useState('doughnut');
+  const [selectedGraph, setSelectedGraph] = useState('bar');
 
   const [guards, setGuards] = useState(0);
   const [forwards, setForwards] = useState(0.0);
@@ -77,14 +77,14 @@ const Home = () => {
     console.log('params', pagination, filters, sorter, extra, render)
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
     const fetchAllPlayers = async () => {
       const response = await fetch('https://basketapi1.p.rapidapi.com/api/basketball/tournament/132/season/38191/best-players/regularseason', options);
       const json = await response.json();
       setList(json.topPlayers.points);
     }
     fetchAllPlayers().catch(console.error)
-  }, []);
+  }, []);*/
 
   useEffect(() => {
     if (list) {
@@ -320,12 +320,39 @@ const Home = () => {
 
   return (
     <div>
-        <Row gutter={16}>
+        <Row gutter={24}>
         <Col span={8}>
           <Card title="Numbers by Position">
-            <Statistic title="Guards:" value={guards} />
-            <Statistic title="Forwards:" value={forwards} />
-            <Statistic title="Centers:" value={centers} />
+            <Row gutter={4}>
+                <Col span={8}>
+                </Col>
+
+                <Col span={8}>
+                    <Statistic title="Guards:" value={guards} />
+                </Col>
+                <Col span={8}>
+                </Col>
+                <Col span={8}>
+                    
+                </Col>
+                
+                
+            </Row>
+            <Row>
+                <Col span={8}>
+                    
+                    <Statistic title="Forwards:" value={forwards} />
+                </Col>
+                <Col span={8}>
+                </Col>
+                <Col span={8}>
+                    <Statistic title="Centers:" value={centers} />
+                </Col>
+                
+
+            </Row>
+
+            
             {/*<p>Guards: <b>{guards}</b></p>
             <p>Forwards: <b>{forwards}</b></p>
             <p>Centers: <b>{centers}</b></p>*/}
@@ -333,14 +360,18 @@ const Home = () => {
         </Col>
         <Col span={8}>
           <Card title="Mean/Average Points">
-            <p>Total Points: <b>{totalPts}</b> </p>
-            <p>Average Points: <b>{list && ((totalPts / list.length).toFixed(1))}</b> </p>
+            <Statistic title="Total Points" value={totalPts} />
+            {totalPts && <Statistic title="Average Points" value={(totalPts / list.length).toLocaleString()} />}
+            
+            {/*<p>Total Points: <b>{totalPts}</b> </p>
+            <p>Average Points: <b>{list && (toLocaleString((totalPts / list.length).toFixed(1)))}</b> </p>*/}
           </Card>
         </Col>
         <Col span={8}>
           <Card title="Ranges of Points">
-            <p> Maximum total points: <b>{maxPts}</b></p>
-            <p> Minimum total points: <b>{minPts}</b></p>
+            <Statistic title="Maximum total points" value={maxPts} />
+            <Statistic title="Minimum total points:" value={minPts} />
+            
           </Card>
         </Col>
       </Row>
@@ -361,6 +392,7 @@ const Home = () => {
                 onChange={onChangeButton}
                 value={selectedGraph}
                 style={{
+                    marginTop: '25px',
                     marginBottom: 4,
                 }}
             >
@@ -385,11 +417,11 @@ const Home = () => {
             }
             {graphData2 && selectedGraph == "bar" && 
                 <Descriptions title="Total Number of Points by Position" bordered style={{ marginTop: '20px' }} >
-                    <Descriptions.Item label='Guards' span={3}> {dataSet[0]} </Descriptions.Item>
-                    <Descriptions.Item label='Forwards' span={3}> {dataSet[1]} </Descriptions.Item>
-                    <Descriptions.Item label='Centers' span={3}> {dataSet[2]} </Descriptions.Item>
-                    <Descriptions.Item label='Forward-Guards' span={3}> {dataSet[3]} </Descriptions.Item>
-                    <Descriptions.Item label='Center-Forwards' span={3}> {dataSet[4]} </Descriptions.Item>
+                    <Descriptions.Item label='Guards' span={3}> {dataSet[0].toLocaleString()} </Descriptions.Item>
+                    <Descriptions.Item label='Forwards' span={3}> {dataSet[1].toLocaleString()} </Descriptions.Item>
+                    <Descriptions.Item label='Centers' span={3}> {dataSet[2].toLocaleString()} </Descriptions.Item>
+                    <Descriptions.Item label='Forward-Guards' span={3}> {dataSet[3].toLocaleString()} </Descriptions.Item>
+                    <Descriptions.Item label='Center-Forwards' span={3}> {dataSet[4].toLocaleString()} </Descriptions.Item>
                 </Descriptions>
             }
 
