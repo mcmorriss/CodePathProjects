@@ -2,28 +2,38 @@ import { useState, useEffect } from 'react'
 import { useRoutes } from 'react-router-dom'
 import CreatePost from './pages/CreatePost'
 import ReadPost from './pages/ReadPost'
+import EditPost from './pages/EditPost'
 import './App.css'
-import { Row, Col } from 'antd';
-import { supabase } from './client'
+import { supabase } from './client';
+import { Link } from 'react-router-dom';
+
 
 function App() {
-  const [members, setMembers] = useState([]);
+  const members = []
 
   let element = useRoutes([
     {
       path: "/",
       element: <ReadPost />
-
     },
     {
       path: "/create",
       element: <CreatePost />
+    },
+    {
+      path: "/edit/:id",
+      element: <EditPost />
     }
   ])
 
   return (
     <div className="App">
-      <h1>Hackathon Team Builder</h1>
+      <div className='header'>
+        <h1>Hackathon Team Builder</h1>
+        <Link to="/"><button > Member Home </button></Link>
+        <Link to="/create"><button > Create a New Member </button></Link>
+      </div>
+      
       {element}
     </div>
   )

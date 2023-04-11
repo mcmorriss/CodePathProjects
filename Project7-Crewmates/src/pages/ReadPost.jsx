@@ -2,13 +2,16 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { supabase } from '../client';
 import { Row, Col, Card } from 'antd';
+import { Link } from 'react-router-dom';
 
 const ReadPost = () => {
     const [members, setMembers] = useState([]);
 
     useEffect(() => {
         const fetchMembers = async () => {
-            const { data, error}  = await supabase.from("Members").select("*");
+            const { data, error}  = await supabase
+            .from("Members")
+            .select("*");
             if(error){
                 console.error(error);
             } else {
@@ -29,10 +32,11 @@ const ReadPost = () => {
                     <p>Location: {member.location}</p>
                     <p>Timezone: {member.timezone}</p>
                     <p>Technology: {member.technology}</p>
+                    <Link to={`/edit/${member.id}`}><button>Edit Member</button></Link>
                 </Card>
             </Col>
             ))}
-            
+
         </Row>
     </div>
   )
