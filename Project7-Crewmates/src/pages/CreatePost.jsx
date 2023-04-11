@@ -44,7 +44,14 @@ const CreatePost = () => {
             <br />
 
             <label for="timezone">Timezone</label>
-            <input type='text' name='timezone' value={timezone} onChange={(e) => setTimezone(e.target.value)}/>
+            <select name='timezone' onChange={(e) => setTimezone(e.target.value)}>
+                <option value="Central Time">Central </option>
+                <option value="Pacific Time">Pacific </option>
+                <option value="Eastern Time">Eastern</option>
+                <option value="Mountain Time">Mountain</option>
+            </select>
+
+            {/*<input type='text' name='timezone' value={timezone} onChange={(e) => setTimezone(e.target.value)}/>*/}
             <br />
 
             <label for="technology">Technologies</label>
