@@ -29,6 +29,7 @@ const CreatePost = () => {
           setHackathons(0);
           setDescription("");
         }
+        window.location = "/";
     };
 
   return (

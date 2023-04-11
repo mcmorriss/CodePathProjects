@@ -34,7 +34,7 @@ const EditPost = () => {
 
     const updateMember = async (event) => {
         event.preventDefault();
-        
+
         await supabase
         .from('Members')
         .update({name, location, timezone, technology, years, hackathons, description})
@@ -43,10 +43,18 @@ const EditPost = () => {
         window.location = "/";
     }
 
+    const deleteMember = async (event) => {
+        event.preventDefault();
+        await supabase
+        .from("Members")
+        .delete()
+        .eq("id", id);
+
+        window.location = "/";
+    }
+
   return (
     <div>
-        <h1>User id: {id}</h1>
-
         <h2>Update Member Info: </h2>
         <form onSubmit={updateMember}>
             <label for="name">Name</label>
@@ -79,6 +87,14 @@ const EditPost = () => {
             <br/>
 
             <input type="submit" />
+            <br/>
+            <h3>OR</h3>
+           
+
+            
+            <button onClick={deleteMember}>❌ Delete Member ❌</button>
+
+                      
         </form>
 
     </div>
