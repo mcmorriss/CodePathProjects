@@ -3,6 +3,7 @@ import { useRoutes } from 'react-router-dom'
 import CreatePost from './pages/CreatePost'
 import ReadPost from './pages/ReadPost'
 import EditPost from './pages/EditPost'
+import ViewPost from './pages/ViewPost'
 import './App.css'
 import { supabase } from './client';
 import { Link } from 'react-router-dom';
@@ -23,7 +24,11 @@ function App() {
     {
       path: "/edit/:id",
       element: <EditPost />
-    }
+    },
+    {
+      path: "/view/:id",
+      element: <ViewPost />
+    },
   ])
 
   return (

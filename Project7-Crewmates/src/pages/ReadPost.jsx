@@ -33,6 +33,7 @@ const ReadPost = () => {
                     <p>Timezone: {member.timezone}</p>
                     <p>Technology: {member.technology}</p>
                     <Link to={`/edit/${member.id}`}><button>Edit Member</button></Link>
+                    <Link to={`/view/${member.id}`}><button>View More </button></Link>
                 </Card>
             </Col>
             ))}
